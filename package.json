@@ -4,11 +4,10 @@
   "description": "GNOME Gtk+ bindings for NodeJS",
   "main": "lib/index.js",
   "scripts": {
-    "install": "npx node-pre-gyp install --fallback-to-build",
     "test": "mocha tests/__run__.js",
-    "build": "npx node-pre-gyp build",
-    "build:full": "npx node-pre-gyp rebuild",
-    "configure": "npx node-pre-gyp configure --debug"
+    "build": "node-gyp build",
+    "build:full": "node-gyp rebuild",
+    "configure": "node-gyp configure --debug"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,6 @@
   },
   "homepage": "https://github.com/romgrk/node-gtk#readme",
   "dependencies": {
-    "@mapbox/node-pre-gyp": "^1.0.10",
     "lodash.camelcase": "4.3.0",
     "lodash.isequal": "4.5.0",
     "lodash.snakecase": "^4.1.1",
@@ -43,7 +41,6 @@
   },
   "devDependencies": {
     "assert": "^1.5.0",
-    "aws-sdk": "^2.452.0",
     "chalk": "^2.4.2",
     "deasync": "^0.1.19",
     "mocha": "^7.1.0",
@@ -55,12 +52,5 @@
     "/src",
     "/scripts",
     "binding.gyp"
-  ],
-  "binary": {
-    "module_name": "node_gtk",
-    "module_path": "./lib/binding/{node_abi}-{platform}-{arch}/",
-    "remote_path": "./{module_name}/v{version}/",
-    "package_name": "{module_name}-{node_abi}-{platform}-{arch}.tar.gz",
-    "host": "https://node-gtk-1.s3.amazonaws.com"
-  }
+  ]
 }
