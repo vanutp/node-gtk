@@ -67,8 +67,7 @@ static GObject* CreateGObjectFromObject(GType gtype, Local<Value> object) {
 
         auto value_spec = g_object_class_find_property (G_OBJECT_CLASS (klass), name_string);
         if (value_spec == NULL) {
-            Throw::InvalidPropertyName(name_string);
-            goto out;
+            continue;
         }
 
         index = n_valid_properties++;
